@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(90deg, #FF8200, #1b0c00);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .profile-container {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            width: 400px;
+            text-align: center;
+        }
+        h2 {
+            color: #ff8800;
+        }
+        .user-data {
+            margin: 20px 0;
+        }
+        .user-data span {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .delete_acc {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #cc0000;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            width: auto;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .delete_acc:hover {
+            background-color: #830000;
+            transform: translateY(-2px);
+        }
+        .delete_acc:active {
+            background-color: #ff0000;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <form action="/del" method="post">
+        <input type="hidden" name="username" value="{{ username }}">
+        <button class="delete_acc" type="submit">
+            Удалить аккаунт
+        </button>
+
+<div class="profile-container">
+    <h2>Профиль пользователя</h2>
+    <div class="user-data">
+        <span><strong>Имя пользователя:</strong> {{ username }}</span>
+        <span><strong>Email:</strong> {{ email }}</span>
+        <span><strong>Пароль:</strong> (скрыт)</span>
+    </div>
+</div>
+
+</body>
+</html>
